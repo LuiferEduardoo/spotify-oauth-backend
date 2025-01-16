@@ -1,17 +1,12 @@
 const port = process.env.APP_PORT || 3000;
+import express from 'express';
+import cors from 'cors'
 
-const express = require('express');
-const cors = require('cors');
-const routerApi = require('./routes');
-
+import routerApi from './routes/index.js';
 
 const app = express();
 
 app.use(cors());
-
-app.use('/api/v1', (req, res, next) => {
-  next();
-});
 
 routerApi(app);
 
