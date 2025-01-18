@@ -25,7 +25,7 @@ export default async function callback(req, res) {
     const response = await fetch(SPOTIFY_TOKEN_URL, options);
     const data = await response.json();
 
-    res.setHeader("Set-Cookie", `access_token=${data.access_token}; Path=/; HttpOnly`);
+    res.setHeader("Set-Cookie", `access_token=${data.access_token}; Path=/;`);
 
     res.writeHead(302, { Location: process.env.FRONTEND_URI});
     res.end();
