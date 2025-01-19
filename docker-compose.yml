@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: express-api
+    restart: always
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    environment:
+      APP_PORT: ${APP_PORT}
+      SPOTIFY_CLIENT_ID: ${SPOTIFY_CLIENT_ID}
+      SPOTIFY_CLIENT_SECRET: ${SPOTIFY_CLIENT_SECRET}
+      REDIRECT_URI: ${REDIRECT_URI}
+      FRONTEND_URI: ${FRONTEND_URI}
